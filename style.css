@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -111,31 +115,6 @@ body {
     background: #0056b3;
 }
 
-@media (max-width: 600px) {
-    .tabs {
-        flex-wrap: wrap;
-        gap: 10px;
-        font-size: 14px;
-    }
-
-    .header h1 {
-        font-size: 20px;
-    }
-
-    .header p {
-        font-size: 12px;
-    }
-
-    .convert-btn {
-        width: 100%;
-    }
-
-    .converter {
-        margin: 10px;
-        padding: 20px;
-    }
-}
-
 .button-row {
     display: flex;
     justify-content: center;
@@ -156,4 +135,103 @@ body {
 
 .log-btn:hover {
     background: #e2e6ea;
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        margin: 10px;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .convert-btn,
+    .log-btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .converter {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .form-grid {
+        flex-direction: column;
+    }
+
+    .block {
+        width: 100%;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-grid {
+        flex-direction: column;
+    }
+
+    .block {
+        width: 100%;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .convert-btn,
+    .log-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tabs {
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .header p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .converter {
+        padding: 15px;
+        margin: 10px;
+        overflow-x: hidden;
+    }
+
+    .form-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .block {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input, select {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 }
