@@ -21,7 +21,11 @@
     </div>
 
     <!-- Form Panjang -->
-    <form class="converter" id="convertForm">
+    <form class="converter" id="convertForm" method="post" action="konversi.php">
+
+
+
+
         <div class="form-grid">
             <div class="block">
                 <h3>1️⃣ Convert From</h3>
@@ -60,10 +64,22 @@
             </div>
         </div>
 
+
+
+
 <div class="button-row">
-    <button class="convert-btn" type="submit">🔁 Convert</button>
+    <!-- Tombol JS tetap pakai type=button -->
+    <button class="convert-btn" type="button" onclick="convert()">🔁 Convert (JS)</button>
+
+    <!-- Tombol PHP pakai type=submit -->
+    <button class="convert-btn" type="submit" name="convert_php">🐘 Convert (PHP)</button>
+
     <a href="log.php" target="_blank" class="log-btn">📜 Lihat Riwayat</a>
 </div>
+
+
+
+
 
     </form>
 
@@ -108,9 +124,15 @@
         </div>
 
 <div class="button-row">
-    <button class="convert-btn" type="submit">🔁 Convert</button>
+    <!-- Tombol JS tetap pakai type=button -->
+    <button class="convert-btn" type="button" onclick="convertWeight()">🔁 Convert (JS)</button>
+
+    <!-- Tombol PHP pakai type=submit -->
+    <button class="convert-btn" type="submit" name="convert_php">🐘 Convert (PHP)</button>
+
     <a href="log.php" target="_blank" class="log-btn">📜 Lihat Riwayat</a>
 </div>
+
 
     </form>
 
