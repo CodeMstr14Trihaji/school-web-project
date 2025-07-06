@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🔄 Unit Converter</h1>
+        <p>Program Konversi Satuan Pilihan Anda!</p>
+    </div>
+
+    <div class="tabs">
+        <button class="active">📏Panjang</button>
+        <button>⚖️Weight</button>
+        <!--
+        <button>🌡️Temperature</button>
+        <button>🧊Volume</button>
+        -->
+    </div>
+
+    <!-- Form Panjang -->
+    <form class="converter" id="convertForm">
+        <div class="form-grid">
+            <div class="block">
+                <h3>1️⃣ Convert From</h3>
+                <label for="fromUnit">Unit Type</label>
+                <select id="fromUnit">
+                    <option value="km">Kilometers (km)</option>
+                    <option value="hm">Hektometer (hm)</option>
+                    <option value="dam">Dekameter (dam)</option>
+                    <option value="m">Meters (m)</option>
+                    <option value="dm">Desimeter (dm)</option>
+                    <option value="ft">Foot (ft)</option>
+                    <option value="cm">Centimeter (cm)</option>
+                    <option value="mm">Milimeter (mm)</option>
+                </select>
+
+                <label for="value">Value</label>
+                <input type="number" id="value" value="1" required>
+            </div>
+
+            <div class="block">
+                <h3>2️⃣ Convert To</h3>
+                <label for="toUnit">Unit Type</label>
+                <select id="toUnit">
+                    <option value="km">Kilometers (km)</option>
+                    <option value="hm">Hektometer (hm)</option>
+                    <option value="dam">Dekameter (dam)</option>
+                    <option value="m">Meters (m)</option>
+                    <option value="dm">Desimeter (dm)</option>
+                    <option value="ft">Foot (ft)</option>
+                    <option value="cm">Centimeter (cm)</option>
+                    <option value="mm">Milimeter (mm)</option>
+                </select>
+
+                <label for="result">Result</label>
+                <input type="text" id="result" readonly>
+            </div>
+        </div>
+
+        <div class="center-button">
+            <button class="convert-btn" type="button" onclick="convert()">🔁 Convert</button>
+        </div>
+    </form>
+
+    <!-- Form Berat -->
+    <form class="converter" id="weightForm" style="display:none">
+        <div class="form-grid">
+            <div class="block">
+                <h3>1️⃣ Convert From</h3>
+                <label for="fromWeight">Unit Type</label>
+                <select id="fromWeight">
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="hg">Hektogram (hg)</option>
+                    <option value="dag">Dekagram (dag)</option>
+                    <option value="g">Gram (g)</option>
+                    <option value="dg">Desigram (dg)</option>
+                    <option value="cg">Centigram (cg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="lb">Pound (lb)</option>
+                </select>
+
+                <label for="weightValue">Value</label>
+                <input type="number" id="weightValue" value="1" required>
+            </div>
+
+            <div class="block">
+                <h3>2️⃣ Convert To</h3>
+                <label for="toWeight">Unit Type</label>
+                <select id="toWeight">
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="hg">Hektogram (hg)</option>
+                    <option value="dag">Dekagram (dag)</option>
+                    <option value="g">Gram (g)</option>
+                    <option value="dg">Desigram (dg)</option>
+                    <option value="cg">Centigram (cg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="lb">Pound (lb)</option>
+                </select>
+
+                <label for="weightResult">Result</label>
+                <input type="text" id="weightResult" readonly>
+            </div>
+        </div>
+
+        <div class="center-button">
+            <button class="convert-btn" type="submit">🔁 Convert</button>
+        </div>
+    </form>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
