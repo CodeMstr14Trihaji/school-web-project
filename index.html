@@ -24,13 +24,11 @@
     <form class="converter" id="convertForm" method="post" action="konversi.php">
 
 
-
-
         <div class="form-grid">
             <div class="block">
                 <h3>1️⃣ Convert From</h3>
                 <label for="fromUnit">Unit Type</label>
-                <select id="fromUnit">
+                <select id="fromUnit" name="fromUnit">
                     <option value="km">Kilometers (km)</option>
                     <option value="hm">Hektometer (hm)</option>
                     <option value="dam">Dekameter (dam)</option>
@@ -65,31 +63,26 @@
         </div>
 
 
-
-
 <div class="button-row">
     <!-- Tombol JS tetap pakai type=button -->
     <button class="convert-btn" type="button" onclick="convert()">🔁 Convert (JS)</button>
 
     <!-- Tombol PHP pakai type=submit -->
-    <button class="convert-btn" type="submit" name="convert_php">🐘 Convert (PHP)</button>
+    <button class="convert-btn" type="submit" name="convert_php_length">🐘 Convert (PHP)</button>
 
     <a href="log.php" target="_blank" class="log-btn">📜 Lihat Riwayat</a>
 </div>
 
 
 
-
-
     </form>
-
     <!-- Form Berat -->
-    <form class="converter" id="weightForm" style="display:none">
+    <form class="converter" id="weightForm" style="display:none" method="post" action="konversi.php">
         <div class="form-grid">
             <div class="block">
                 <h3>1️⃣ Convert From</h3>
                 <label for="fromWeight">Unit Type</label>
-                <select id="fromWeight">
+                <select id="fromWeight" name="fromWeight">
                     <option value="kg">Kilogram (kg)</option>
                     <option value="hg">Hektogram (hg)</option>
                     <option value="dag">Dekagram (dag)</option>
@@ -128,7 +121,7 @@
     <button class="convert-btn" type="button" onclick="convertWeight()">🔁 Convert (JS)</button>
 
     <!-- Tombol PHP pakai type=submit -->
-    <button class="convert-btn" type="submit" name="convert_php">🐘 Convert (PHP)</button>
+    <button class="convert-btn" type="submit" name="convert_php_weight">🐘 Convert (PHP)</button>
 
     <a href="log.php" target="_blank" class="log-btn">📜 Lihat Riwayat</a>
 </div>
