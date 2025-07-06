@@ -22,14 +22,32 @@ function convert() {
     const inMeter = value * unitsToMeter[from];
     const converted = inMeter / unitsToMeter[to];
 
-    // Format angka lokal Indonesia (koma desimal)
     const formatted = new Intl.NumberFormat('id-ID', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 6
     }).format(converted);
 
+    // ✅ tampilkan hasil dulu
     document.getElementById("result").value = formatted + " " + to;
+
+    // ✅ lalu log ke PHP
+    fetch("log_handler.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            value: value,
+            from: from,
+            to: to,
+            result: formatted,
+            unit: "length"
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Log success:", data))
+    .catch(err => console.error("Log failed:", err));
 }
+
+
 
 function convertWeight() {
     const value = parseFloat(document.getElementById("weightValue").value);
@@ -44,7 +62,7 @@ function convertWeight() {
         dg: 0.1,
         cg: 0.01,
         mg: 0.001,
-        lb: 453.59237 // pound ke gram
+        lb: 453.59237
     };
 
     if (!unitsToGram[from] || !unitsToGram[to]) {
@@ -61,18 +79,33 @@ function convertWeight() {
     }).format(converted);
 
     document.getElementById("weightResult").value = formatted + " " + to;
+
+    fetch("log_handler.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            value: value,
+            from: from,
+            to: to,
+            result: formatted,
+            unit: "weight"
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Log success:", data))
+    .catch(err => console.error("Log failed:", err));
 }
 
+// Panjang
+document.getElementById("convertForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    convert();
+});
+
+// Berat
 document.getElementById("weightForm").addEventListener("submit", function (e) {
     e.preventDefault();
     convertWeight();
-});
-
-
-// 2. Event listener untuk form, ditaruh setelah fungsi convert
-document.getElementById("convertForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Hindari reload halaman
-    convert();
 });
 
 document.querySelectorAll(".tabs button").forEach((btn, index) => {
